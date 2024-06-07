@@ -5,4 +5,4 @@ import paymentCardImage from "./Cart_image.jpg"
 import cartImage from './Cart_image.jpg'
 import gitHubLogo from './github-logo.png'
 
-export {newlogo,WebSiteLogo,VLogo,paymentCardImage,cartImage,gitHubLogo}
+export {newlogo,WebSiteLogo,paymentCardImage,cartImage,gitHubLogo,VLogo}
