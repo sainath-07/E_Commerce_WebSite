@@ -15,14 +15,14 @@ const TopProducts=()=>{
                 </div>
             </div>
                 {/* body section */}
-            <div className="grid mx-4 border-2 border-green-600  sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 place-items-center md:px-[10px] lg:px-[0px]  justify-items-center items-center
+            <div className="grid mx-4 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 place-items-center md:px-[10px] lg:px-[0px]  justify-items-center items-center
             ">
                 
                 {
                     topProducts.map((each,i)=>{
                         return(
                             <div  key={i}
-                            className="px-4 rounded-2xl   border-2 border-red-600 bg-white dark:bg-gray-800 hover:bg-black/80 mx-auto container  hover:text-white relative shadow-xl duration-300 group max-w-[350px] mt-24"
+                            className="px-4 rounded-2xl    bg-white dark:bg-gray-800 hover:bg-black/80 mx-auto container  hover:text-white relative shadow-xl duration-300 group max-w-[350px] mt-24"
                             >
                                 {/* image section */}
                                 <div className="h-[100px]">
@@ -51,7 +51,7 @@ const TopProducts=()=>{
                                         hover:border-2 hover:opacity-75 border-2 border-zinc-600 group-hover:text-red text-dark
                                         ">
                                             
-                                            <Link to={'/products'}>ShopNow</Link>
+                                            <Link to={'/Collections'}>ShopNow</Link>
                                         </button>
 
                                 </div>

@@ -1,0 +1,48 @@
+.product-card {
+    width: 280px; /* Set a fixed width for product cards */
+    margin: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #dee2e6; 
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 260px;
+  }
+  
+  .product-image {
+    max-height: 260px;
+    max-width: 100%;
+    object-fit: cover;
+  }
+  
+  .product-info {
+    padding: 0 1rem;
+  }
+  
+  .category-label {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: #343a40; /* Bootstrap dark color */
+    color: #fff;
+    border-radius: 0.25rem;
+  }
+  
+  .btn {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .btn-success {
+    background-color: #28a745; /* Bootstrap success color */
+    border: none;
+    color: #fff;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838; /* Darker success color on hover */
+  }
+  
