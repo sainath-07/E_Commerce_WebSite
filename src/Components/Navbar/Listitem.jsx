@@ -32,10 +32,10 @@ import { Link, useLocation } from "react-router-dom";
           label: "About",
           link: "About",
         },
-        {
-          label: "Contact",
-          link: "contact",
-        },
+        // {
+        //   label: "Cartpage",
+        //   link: "Cartpage",
+        // },
       ];
     return(
         <>

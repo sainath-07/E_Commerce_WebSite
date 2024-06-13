@@ -5,7 +5,9 @@ const HeroComponent=()=>{
         <>
       <div className="mt-2 grid grid-cols-1 md:grid-cols-2 max-h-[1200px] overflow-hidden gap-2">
         <div className="h-[90%] mt-4 px-4">
-            <img className="h-[100%] w-[100%] rounded" src="https://images.pexels.com/photos/3985073/pexels-photo-3985073.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+            <img className="h-[100%] w-[100%] rounded" 
+            src="https://images.pexels.com/photos/3985084/pexels-photo-3985084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+             alt="" />
             </div>      
         <div className="h-[100%]  grid grid-cols-2 gap-4 p-4 overflow-hidden px-4">
             <div className=" h-[100%] ">
