@@ -25,26 +25,24 @@ import { Link, useLocation } from "react-router-dom";
           link: "Collections",
         },
         {
-          label: "Men",
+          label: "Men's wear",
           link: "men",
         },
         {
-          label: "About",
+          label: "About_us",
           link: "About",
         },
-        // {
-        //   label: "Cartpage",
-        //   link: "Cartpage",
-        // },
+
       ];
     return(
         <>
          {ListItems.map((obj, index) => {
                 return (
                   <React.Fragment key={index}>
-                  <ul >
+                  <ul 
+                  >
                     <li className={Activepage(obj)}>
-                      <Link to={obj.link} >
+                      <Link  to={obj.link} >
                         {obj.label}
                       </Link>
                     </li>

@@ -6,6 +6,9 @@ import ViewProducts from "../ViewProductsButton/viewproducts";
 import Aos from "aos";
 import "aos/dist/aos.css"
 import TopProducts from "../TopProducts/TopProducts";
+import Bannerpage from "../Bannersection/banner";
+import Testimonal from "../Testimonal/testimonal";
+import Footer from "../Footer/footer";
 
 export default function HomePage() {
 
@@ -25,6 +28,9 @@ export default function HomePage() {
    <ViewProducts/>
    <Products/>
    <TopProducts/>
+   <Bannerpage/>
+   <Testimonal/>
+   <Footer/>
    </>
   )
 }

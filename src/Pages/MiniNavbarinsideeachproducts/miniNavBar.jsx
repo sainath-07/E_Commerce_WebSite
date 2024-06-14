@@ -7,30 +7,36 @@ import { MdBackspace } from "react-icons/md";
 import axios from "axios";
 
 const MiniNavBar = () => {
-  const { cardProducts,productsFilteringCategoryWise,allCategoriesButton } = useContext(passdata);
+  const {
+    cardProducts,
+    sortValue,
+    handleSortChange,
+    productsFilteringCategoryWise,
+    allCategoriesButton,
+  } = useContext(passdata);
 
   const [isSidemenuopen, setisSidemenuopen] = useState(false);
-  const [menubtn,setmenubtn]=useState([])
+  const [menubtn, setmenubtn] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchCategories();
-  },[])
+  }, []);
 
   const fetchCategories = async () => {
     let response = await axios.get(
-      'https://fakestoreapi.com/products/categories'
+      "https://fakestoreapi.com/products/categories"
     );
-   console.log(response.data)
+    //  console.log(response.data)
     if (response.status === 200) {
-        setmenubtn(response.data);
+      setmenubtn(response.data);
     } else {
       alert("Some thing went wrong....");
     }
   };
   return (
     <>
-      <div className="shadow-custom w-full mt-4 ">
-        <nav className="flex shadow-custom justify-center w-full">
+      <div className="shadow-md w-full fixed bg-white left-0 top-0 z-20 border-b-2">
+        <nav className="flex shadow-md justify-center w-full">
           <ul
             className="flex  justify-center
                  rounded py-2 w-full  
@@ -40,7 +46,7 @@ const MiniNavBar = () => {
               <FiMenu
                 className="sm:hidden text-xl cursor-pointer"
                 onClick={() => setisSidemenuopen(true)}
-                />
+              />
             </li>
 
             {/* Mobile view navbar */}
@@ -52,45 +58,64 @@ const MiniNavBar = () => {
               )}
             >
               <section className="top-0 left-0 text-black flex flex-col h-screen absolute bg-orange-400 px-4   mt-0 py-2 z-50 w-56 gap-8 ">
-                <MdBackspace 
+                <MdBackspace
                   onClick={() => setisSidemenuopen(false)}
-                  className="text-3xl relative top-0 left-36
+                  className="text-3xl relative top-0 left-40
     cursor-pointer"
                 />
 
-                {
-                    menubtn.map((each,i)=>{
-                        return(
-                            <React.Fragment key={i}>
+                {menubtn.map((each, i) => {
+                  return (
+                    <React.Fragment key={i}>
+                      <div className="flex justify-center rounded-md py-2  border-2">
+                        <button
+                          onClick={() => productsFilteringCategoryWise(each)}
+                          className="text-base font-semibold font-custom"
+                        >
+                          {each}
+                        </button>
+                      </div>
+                    </React.Fragment>
+                  );
+                })}
 
-                                <div className="flex justify-center  border-2">
-                                    <button onClick={()=>productsFilteringCategoryWise(each)}
-                                        
-                                        className="text-base font-semibold font-custom"
-                                        >{each}</button>
-                                </div>
-                            </React.Fragment>
-                        )
-
-                    })
-                }
-
-                         <div className="flex justify-center  border-2">
-
-                <button className="text-base font-custom font-semibold " onClick={allCategoriesButton}>all Products</button>
-                         </div>
                 
 
+                <div className="flex justify-center rounded-md py-2 border-2">
+                  <button
+                    className="text-base font-custom font-semibold "
+                    onClick={allCategoriesButton}
+                  >
+                    all Products
+                  </button>
+                </div>
 
 
+                <form className="flex justify-center">
+                  <select
+                    name="sort"
+                    id="sort"
+                    className="text-base font-custom py-2  font-semibold w-full"
+                    value={sortValue}
+                    onChange={handleSortChange}
+                  >
+                    <option value="" disabled>
+                      Sort Price
+                    </option>
+                    <option value="a-z" className="text-center border-2 border-red-900">low to High</option>
+                    <option value="A-Z">High to Low</option>
+                  </select>
+                </form>
               </section>
             </div>
 
-                {/* <ListItems /> */}
+            {/* <ListItems /> */}
             {/* --------------------- */}
 
-            <li className="font-custom font-semibold px-2 rounded sm:text-xl
-            ">
+            <li
+              className="font-custom font-semibold px-2 rounded sm:text-xl
+            "
+            >
               <Link
                 to={"/"}
                 className="px-2 py-1 
@@ -125,7 +150,7 @@ const MiniNavBar = () => {
                 >
                   cart
                 </Link>
-                <span className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-sm font-bold rounded-full h-6 w-6 flex items-center justify-center">
+                <span className="absolute top-2 sm:top-1 left-[23px]  sm:left-[28px]  translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-sm font-bold rounded-full h-6 w-6 flex items-center justify-center">
                   {cardProducts.length}
                 </span>
               </button>

@@ -9,9 +9,9 @@ const TopProducts=()=>{
             <div className=" ps-8 mt-4 ">
                 {/* header section */}
                 <div className="text-left mb-10">
-               <p  className="text-xl font-segoe-ui text-orange-600">Top Related Products</p>
-               <h1  className="text-3xl font-bold">Best Products</h1>
-               <p  className="text-sm text-gray-400">Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores voluptatem, unde, ut doloremque perferendis perspiciatis iusto des ipsum dolor sit amet consectetur adipisicing elit. </p>
+               <p data-aos="fade-up" className="text-xl font-segoe-ui text-orange-600" >Top Related Products</p>
+               <h1  className="text-3xl font-bold" data-aos="fade-up">Best Products</h1>
+               <p data-aos="fade-up" className="text-sm text-gray-400">Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores voluptatem, unde, ut doloremque perferendis perspiciatis iusto des ipsum dolor sit amet consectetur adipisicing elit. </p>
                 </div>
             </div>
                 {/* body section */}
@@ -21,11 +21,11 @@ const TopProducts=()=>{
                 {
                     topProducts.map((each,i)=>{
                         return(
-                            <div  key={i}
+                            <div  key={i} data-aos="fade-up"
                             className="px-4 rounded-2xl    bg-white dark:bg-gray-800 hover:bg-black/80 mx-auto container  hover:text-white relative shadow-xl duration-300 group max-w-[350px] mt-24"
                             >
                                 {/* image section */}
-                                <div className="h-[100px]">
+                                <div data-aos="fade-up" className="h-[100px]">
                                     <img src={each.img}
                                     className="max-w-[140px]  mx-auto transform -translate-y-20
                                     group-hover:scale-105 duration-200

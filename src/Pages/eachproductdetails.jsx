@@ -31,19 +31,29 @@ const EachProductDetails = () => {
     return <div className="text-center text-red-500">Product not found</div>;
   }
 
-  const { image, title, price, description, category, rating } = product;
+  
+  
+  const isProductInCart = (id) => {
+    return cardProducts.some((item) => item.id === id);
+  };
+    
+    
+    const { image, title, price, description, category, rating,id } = product;
 
   return (
     <>
    
        
     <MiniNavBar/>
-      <div className="container mx-auto w-full mt-12 h-[80%] flex flex-col md:flex-row">
+      <div className="containerw-full sm:mt-20 h-[80%]  flex flex-col justify-center items-center md:flex-row">
         {/* Image Gallery */}
-        <div className="w-full md:w-1/2 flex flex-col items-center">
-          <div className="w-full md:w-4/5 lg:w-3/4">
+        <div className="w-full md:w-1/2 flex flex-col  justify-center items-center ">
+          <div 
+          // className="w-full md:w-4/5 lg:w-3/4"
+          className="flex justify-center"
+          >
             <img
-              className="object-full w-[80%] border-2 border-stone-400 rounded p-10"
+              className="object-full w-[80%] border-2 border-stone-900 rounded "
               src={image}
               alt={title}
             />
@@ -69,15 +79,24 @@ const EachProductDetails = () => {
           </div>
 
           {/* Add to Cart and Buy Now Buttons */}
-          <div className="flex space-x-4 mt-4">
+
+          <div className="flex  justify-center md:justify-start space-x-4 mt-4">
+          {
+            
+            isProductInCart(product.id) ?
+            <button className="px-4 py-2 bg-orange-500 text-white rounded">
+             <Link to={'/Cartpage'}>
+             Buy Now
+            </Link>
+            </button>
+            :
             <button className="px-4 py-2 bg-yellow-500 text-white rounded"
              onClick={()=>addToCart(product)}
             >
-              Add to Cart
-            </button>
-            <button className="px-4 py-2 bg-orange-500 text-white rounded">
-              Buy Now
-            </button>
+              add to cart
+              </button>
+
+          }
           </div>
         </div>
       </div>
