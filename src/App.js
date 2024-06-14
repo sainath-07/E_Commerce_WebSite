@@ -6,7 +6,7 @@ function App() {
     <>
     <NavigationStack/>
       </>
-  );
+  )
 }
 
-export default App;
+export default App

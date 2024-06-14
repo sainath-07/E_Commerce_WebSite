@@ -6,6 +6,8 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
+import { GoMoveToTop } from "react-icons/go";
+
 
 const DummyProducts = () => {
   const {
@@ -30,7 +32,7 @@ const DummyProducts = () => {
     fetchProducts();
     setTimeout(() => {
       setisloading(false);
-    }, 100);
+    }, 1000);
   }, []);
 
   const fetchCategories = async () => {
@@ -50,7 +52,7 @@ const DummyProducts = () => {
 
   return (
     <>
-      <div className="sm:mt-20 ">
+      <div className="sm:mt-20" id="#">
         <ButtonCategories
           handleaction={productsFilteringCategoryWise}
           allCategoriesButton={allCategoriesButton}
@@ -79,11 +81,17 @@ const DummyProducts = () => {
 
 
 
+        <div className="fixed left-0 top-[400px] w-[40px] sm:w-[50px] bg-black rounded-r-lg z-10 h-[42px]">
+    <a href="#" className="w-full h-full text-center sm:ml-2  mt-2 text-xl text-white absolute "><GoMoveToTop className="text-3xl" />
+    </a>
+</div>
+
+
 
         {/* products */}
 
         <div
-          className="grid grid-cols-1 mt-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
+          className="grid  mb-6 grid-cols-1 mt-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
          gap-y-4 
         sm:justify-items-center lg:gap-4
         mx-4"
@@ -128,9 +136,7 @@ const DummyProducts = () => {
                         <h1 className="font-bold line-clamp-1 px-[2px] md:px-0">
                           {isloading ? <Skeleton width={100} /> : title}
                         </h1>
-                        {/* <h1 className="font-bold line-clamp-1 px-[2px] md:px-0">
-                      {isloading ? <Skeleton width={100} /> : id}
-                    </h1> */}
+                
                         <p className=" font-semibold line-clamp-1">
                           {isloading ? <Skeleton /> : <>Category: {category}</>}
                         </p>

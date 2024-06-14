@@ -6,7 +6,7 @@ const TopProducts=()=>{
     return(
         <>
         <div  >
-            <div className=" ps-8 mt-4 ">
+            <div className=" mt-4 ">
                 {/* header section */}
                 <div className="text-left mb-10">
                <p data-aos="fade-up" className="text-xl font-segoe-ui text-orange-600" >Top Related Products</p>

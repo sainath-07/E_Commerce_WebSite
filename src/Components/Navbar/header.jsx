@@ -69,8 +69,7 @@ const Header = () => {
               "  relative w-full h-[50px] bottom-2 mt-2",
               isSidemenuopen && "backdrop-blur -z-10"
             )}>
-                <Link
-                  to={"/Cartpage"}>
+             
                               <BsCartPlusFill 
                               className={
                                 clsx("text-[200%] mr-4 rounded  sm:text-[220%]",
@@ -82,7 +81,6 @@ const Header = () => {
                               
                               />
 
-                </Link>
                 <span className="absolute top-0 right-4 translate-x-1/2 -translate-y-1/2 mt-2 bg-blue-600 text-white text-sm font-bold rounded-full h-6  w-6 flex items-center justify-center">
                   {cardProducts.length}
                 </span>

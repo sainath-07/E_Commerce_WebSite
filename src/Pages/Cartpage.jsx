@@ -4,6 +4,7 @@ import { FiX } from "react-icons/fi";
 import MiniNavBar from "./MiniNavbarinsideeachproducts/miniNavBar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import Footer from "../Components/Footer/footer";
 
 
 const Cartpage = () => {
@@ -111,6 +112,7 @@ const Cartpage = () => {
           );
         })}
       </div>
+
     </>
   );
 };

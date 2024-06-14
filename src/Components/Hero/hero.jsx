@@ -1,3 +1,5 @@
+import { GoMoveToTop } from "react-icons/go"
+
 const HeroComponent=()=>{
 
     return(
@@ -25,7 +27,10 @@ const HeroComponent=()=>{
             </div> 
 
       </div>
-     
+      <div className="fixed left-0 top-[400px] w-[40px] sm:w-[50px] bg-black rounded-r-lg z-10 h-[42px]">
+    <a href="#" className="w-full h-full text-center sm:ml-2  mt-2 text-xl text-white absolute "><GoMoveToTop className="text-3xl" />
+    </a>
+</div>
         </>
     )
 

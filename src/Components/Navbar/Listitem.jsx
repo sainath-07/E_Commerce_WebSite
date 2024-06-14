@@ -5,19 +5,6 @@ import { Link, useLocation } from "react-router-dom";
  const ListItems=()=>{
 
 
-    const { pathname } = useLocation();
-  let subpage = pathname.slice(1);
-
-  const Activepage = (type) => {
-    let textcolor = "text-lg font-segoe-ui px-4 py-2  inline-flex cursor-pointer";
-
-    if (type.label === subpage) {
-      textcolor += " text-white  rounded bg-black border-2 border-black transition-transform ";
-    }
-    return textcolor;
-
-    // console.log(type.label)
-  };
 
     const ListItems = [
         {
@@ -29,8 +16,8 @@ import { Link, useLocation } from "react-router-dom";
           link: "men",
         },
         {
-          label: "About_us",
-          link: "About",
+          label: "Cartpage",
+          link: "Cartpage",
         },
 
       ];
@@ -41,7 +28,7 @@ import { Link, useLocation } from "react-router-dom";
                   <React.Fragment key={index}>
                   <ul 
                   >
-                    <li className={Activepage(obj)}>
+                    <li>
                       <Link  to={obj.link} >
                         {obj.label}
                       </Link>

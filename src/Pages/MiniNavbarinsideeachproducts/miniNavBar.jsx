@@ -52,22 +52,23 @@ const MiniNavBar = () => {
             {/* Mobile view navbar */}
 
             <div
-              className={clsx(
-                "fixed h-screen w-screen lg:hidden  backdrop-blur-sm top-0 left-0 -translate-x-full transition-all z-20 ",
-                isSidemenuopen && "translate-x-0"
-              )}
-            >
-              <section className="top-0 left-0 text-black flex flex-col h-screen absolute bg-orange-400 px-4   mt-0 py-2 z-50 w-56 gap-8 ">
-                <MdBackspace
-                  onClick={() => setisSidemenuopen(false)}
-                  className="text-3xl relative top-0 left-40
+            className={clsx(
+              "fixed w-screen lg:hidden h-full backdrop-blur-sm top-0 left-0 -translate-x-full transition-all",
+              isSidemenuopen && "translate-x-0"
+            )}
+          >
+            <section className="absolute top-0 left-0 text-black flex flex-col h-screen bg-orange-400 px-8 mt-0 py-2  z-10 w-56 gap-12 ">
+              <MdBackspace 
+                onClick={() => setisSidemenuopen(false)}
+                className="text-4xl mt-2 
     cursor-pointer"
-                />
+              />
 
-                {menubtn.map((each, i) => {
+              
+{menubtn.map((each, i) => {
                   return (
                     <React.Fragment key={i}>
-                      <div className="flex justify-center rounded-md py-2  border-2">
+                      <div className="flex justify-center  border-2">
                         <button
                           onClick={() => productsFilteringCategoryWise(each)}
                           className="text-base font-semibold font-custom"
@@ -81,7 +82,7 @@ const MiniNavBar = () => {
 
                 
 
-                <div className="flex justify-center rounded-md py-2 border-2">
+                <div className="flex justify-center  border-2">
                   <button
                     className="text-base font-custom font-semibold "
                     onClick={allCategoriesButton}
@@ -95,7 +96,7 @@ const MiniNavBar = () => {
                   <select
                     name="sort"
                     id="sort"
-                    className="text-base font-custom py-2  font-semibold w-full"
+                    className="text-base font-custom py-1 font-semibold w-full"
                     value={sortValue}
                     onChange={handleSortChange}
                   >
@@ -106,11 +107,12 @@ const MiniNavBar = () => {
                     <option value="A-Z">High to Low</option>
                   </select>
                 </form>
-              </section>
-            </div>
+            
 
-            {/* <ListItems /> */}
+            </section>
+          </div>
             {/* --------------------- */}
+
 
             <li
               className="font-custom font-semibold px-2 rounded sm:text-xl
@@ -139,18 +141,22 @@ const MiniNavBar = () => {
               </Link>
             </li>
 
-            <li className="font-custom font-semibold px-2 rounded sm:text-xl">
-              <button className="relative">
+            <li className="font-custom font-semibold px-2  rounded sm:text-xl">
+              {/* <button className="relative "> */}
+              <button className={clsx(
+                "relative",
+                isSidemenuopen && "backdrop-blur -z-10"
+              )}>
                 <Link
                   to={"/Cartpage"}
                   className="px-2 py-1 
                border-red-500
-              sm:hover:border-b-2
+              sm:hover:border-b-2  
               "
                 >
                   cart
                 </Link>
-                <span className="absolute top-2 sm:top-1 left-[23px]  sm:left-[28px]  translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-sm font-bold rounded-full h-6 w-6 flex items-center justify-center">
+                <span className="absolute top-2 sm:top-1 left-[23px]  sm:left-[28px]  translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-sm font-bold rounded-full h-6 w-6 flex items-center justify-center ">
                   {cardProducts.length}
                 </span>
               </button>
