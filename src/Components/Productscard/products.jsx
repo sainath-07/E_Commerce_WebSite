@@ -5,8 +5,8 @@ import ProductsData from "./ProductsList"
 const Products=()=>{
     return(
         <>
-        <div className="mt-2">
-            <div className="container">
+        <div className="mt-4 xl:mt-12">
+            <div className="container-fluid">
                 {/* headersection */}
                 <div className="text-center mb-10 max-w-[600px] mx-auto">
                <p data-aos="fade-up" className="text-xl font-segoe-ui text-orange-600">Top Selling Products</p>

@@ -24,11 +24,14 @@ const Footer=()=>{
 
             </div>
             {/* links 2nd column */}
-            <div className="flex gap-4 justify-center items-center sm:w-full  w-full text-white mx-auto">
+            <div className="flex justify-center gap-4 items-center sm:w-full  flex-wrap place-content-center text-white ">
                 
-                 {/* <p className="text-xl font-custom w-full">Home</p> */}
+                 <p className="text-sm sm:text-base lg:text-xl font-custom">Home</p>
+                 <p className="text-sm sm:text-base lg:text-xl font-custom">Company</p>
+                 <p className="text-sm sm:text-base lg:text-xl font-custom">Products</p>
+                 <p className="text-sm sm:text-base lg:text-xl font-custom">Contact</p>
              
-                 <ListItems />
+                 
                  
             </div>
             {/* links 3rd column */}

@@ -135,7 +135,7 @@ const MiniNavBar = () => {
                border-red-500
               sm:hover:border-b-2
               "
-                to={"/collections"}
+                to={"/Products"}
               >
                 Collections
               </Link>

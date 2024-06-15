@@ -17,7 +17,6 @@ const Cartpage = () => {
 
   const[totalPrice,settotalPrice]=useState(0)
 
-  console.log(cardProducts, "cardProducts");
 
   const userAction = (action, index) => {
     switch (action) {
@@ -63,7 +62,6 @@ const Cartpage = () => {
   
   const calculate= (accumulator,element)=>accumulator+element;
   const totalpricefun= totalStoreAllprice.reduce(calculate,0)  
-  console.log(totalpricefun,"totalpricefun")
 
  
 // orderTotal
@@ -71,7 +69,6 @@ const Cartpage = () => {
 
 let percentage=totalpricefun*0.08
 const res=totalpricefun+Math.round(percentage)+150;
-console.log(res,"res")
 
 
   return (

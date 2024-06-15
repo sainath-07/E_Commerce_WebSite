@@ -8,13 +8,10 @@ import { Link, useLocation } from "react-router-dom";
 
     const ListItems = [
         {
-          label: "Collections",
-          link: "Collections",
+          label: "Products",
+          link: "Products",
         },
-        {
-          label: "Men's wear",
-          link: "men",
-        },
+
         {
           label: "Cartpage",
           link: "Cartpage",
@@ -29,7 +26,9 @@ import { Link, useLocation } from "react-router-dom";
                   <ul 
                   >
                     <li>
-                      <Link  to={obj.link} >
+                      <Link className="md:text-base text-gray-500
+                      lg:text-[16px]
+                      " to={obj.link} >
                         {obj.label}
                       </Link>
                     </li>

@@ -7,6 +7,11 @@ import EachProductDetails from "../../Pages/eachproductdetails";
 import { createContext, useState } from "react";
 import productList from "../DummyProducts/productlistdata";
 import Cartpage from "../../Pages/Cartpage";
+import LoginForm from "../../Pages/Auth0/Loginform";
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './toaster.css'
+
 
 export const passdata = createContext();
 
@@ -38,6 +43,13 @@ const NavigationStack = () => {
   const addToCart = (obj) => {
     const res = { ...obj, count: 1, totalprice: Math.round(obj.price) };
     setcardProducts([...cardProducts, res]);
+    toast.success("added to cart",
+    //   {
+    //   position: toast.POSITION.TOP_CENTER,
+    //   className: 'custom-toast-container',
+    //   bodyClassName: 'custom-toast-body',
+    // }
+  )
   };
 
   // Filtering products data in the collections component
@@ -147,10 +159,11 @@ const NavigationStack = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" Component={HomePage} />
-            <Route path="/Collections" Component={Collections} />
+            <Route path="/Products" Component={Collections} />
             <Route path="/men" Component={MenPage} />
             <Route path="/About" Component={AboutPage} />
             <Route path="/Cartpage" Component={Cartpage} />
+            <Route path="/LoginForm" Component={LoginForm} />
             <Route
               path="/:category/:productID"
               Component={EachProductDetails}
