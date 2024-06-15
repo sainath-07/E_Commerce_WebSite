@@ -24,6 +24,8 @@ const NavigationStack = () => {
   // Search functionality varaible
   const [searchvalue, setsearchvalue] = useState("");
 
+
+
   //fetching  All products .....
   const fetchProducts = async () => {
     setproducts(productList);
@@ -110,6 +112,11 @@ const NavigationStack = () => {
     } 
    
   };
+
+
+
+
+
 
   return (
     <>
