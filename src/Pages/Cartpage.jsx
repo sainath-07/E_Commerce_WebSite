@@ -105,7 +105,7 @@ const res=totalpricefun+Math.round(percentage)+150;
                     Price: <span>&#8377;</span>{Math.ceil(price)}
                   </p>
 
-                  <span className="mt-12 font-bold">quantity :{count}</span>
+                  <span className="mt-12 font-bold">Qty :{count}</span>
 
                   <div className="flex justify-end sm:justify-start gap-2 mt-2">
                     <button
