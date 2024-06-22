@@ -7,12 +7,12 @@ import { MdBackspace } from "react-icons/md";
 import clsx from "clsx";
 import ListItems from "./Listitem";
 import { passdata } from "../Navigationstack/navigation";
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
   const [isSidemenuopen, setsidemenu] = useState(false);
   const { cardProducts } = useContext(passdata);
-  const { user, loginWithRedirect, isAuthenticated, logout } = useAuth0();
+  // const { user, loginWithRedirect, isAuthenticated, logout } = useAuth0();
 
   return (
     <>
@@ -39,19 +39,13 @@ const Header = () => {
             )}
           >
             <section className="absolute top-0 left-0 text-black flex flex-col h-full bg-orange-400 mt-0 py-2 z-10 w-56 gap-4 ">
-              <MdBackspace
+              <MdBackspace 
                 onClick={() => setsidemenu(false)}
-                className="text-4xl mt-2 ml-8 cursor-pointer"
+                className="text-4xl mt-2 ml-8 cursor-pointer "
               />
               <div className="h-[70%] flex flex-col justify-between items-center">
-                <div className="w-full h-full flex flex-col justify-evenly pl-4">
-                  {
-                    isAuthenticated &&
-                  <p className="font-seogue-ui font-semibold text-xl text-red-600">
-                   Welcome {isAuthenticated && user.family_name}👋🏻
-                  
-                  </p>
-                  }
+                <div className="w-full h-full flex flex-col justify-around items-center">
+               
                   <p className="text-xl font-semibold font-seogue-ui">
                     <Link to={"/Products"}>Products</Link>
                   </p>
@@ -64,59 +58,21 @@ const Header = () => {
                   <p className="text-xl font-semibold font-seogue-ui">
                     <Link to={"/accessories"}>Accessories</Link>
                   </p>
-                  <p className="text-xl font-semibold font-seogue-ui">
-                    <Link to={"/secure-payments"}>Secure Payments</Link>
-                  </p>
+                
                 </div>
-                {isAuthenticated ? (
-              <button
-                onClick={() => logout()}
-                className="bg-black rounded text-base text-white w-28 h-8"
-                >
-                Log out
-              </button>
-            ) : (
-              <button
-                onClick={() => loginWithRedirect()}
-                className="bg-black rounded text-base text-white w-28 h-8"
-                >
-                Log in
-              </button>
-            )}
+            
               </div>
             </section>
           </div>
 
           {/* list section in the lg screen */}
 
-          <div className="hidden md:flex md:w-[60%] justify-evenly">
+          <div className="hidden md:flex md:w-[60%]  items-center justify-evenly">
       
 
-            {
-                    isAuthenticated &&
-                  <p className="md:text-base font-bold lg:text-xl">
-                   Welcome {isAuthenticated && user.family_name}👋🏻
-                  
-                  </p>
-                  }
-            
 
             <ListItems />
-            {isAuthenticated ? (
-              <button
-                onClick={() => logout()}
-                className="bg-black rounded text-base text-white md:w-[16%] md:p-2 xl:w-[10%]"
-              >
-                Log out
-              </button>
-            ) : (
-              <button
-                onClick={() => loginWithRedirect()}
-                className="bg-black rounded text-base text-white md:w-[16%] md:p-2 xl:w-[10%]"
-              >
-                Log in
-              </button>
-            )}
+         
           </div>
 
           {/* Last section */}
@@ -143,22 +99,7 @@ const Header = () => {
 
 
 
-            {/* avatar img */}
-            {isAuthenticated ? 
-              <img
-                src={user.picture}
-                className="h-8 w-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full"
-                alt="avatar-img"
-              />
-              :
-              <>
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/036/280/650/original/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-illustration-vector.jpg"
-                className="h-8 w-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full"
-                alt="avatar-img"
-              />
-              </>
-            }
+      
           </section>
         </nav>
       </main>

@@ -335,7 +335,7 @@ const productList=[
       "productType":"womendress",
 
       "title": "Opna Women's Short Sleeve Moisture",
-      "price": 12.99,
+      "price": 45.99,
    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolorem rem sequi consectetur quo at veritatis sunt laudantium officia fuga distinctio aut, repudiandae voluptates rerum earum adipisci incidunt, nesciunt sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eos soluta quisquam? Blanditiis minima ducimus eaque fuga quod non placeat quaerat quas consectetur veritatis adipisci, odio cum illo, voluptates voluptatem!" ,
    "category": "women's clothing",
 
@@ -351,7 +351,7 @@ const productList=[
       "productType":"womendress",
 
       "title": "Opna Women's Short Sleeve Moisture",
-      "price": 12.99,
+      "price": 33.99,
      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolorem rem sequi consectetur quo at veritatis sunt laudantium officia fuga distinctio aut, repudiandae voluptates rerum earum adipisci incidunt, nesciunt sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eos soluta quisquam? Blanditiis minima ducimus eaque fuga quod non placeat quaerat quas consectetur veritatis adipisci, odio cum illo, voluptates voluptatem!" ,
      "category": "women's clothing",
 
@@ -368,7 +368,7 @@ const productList=[
       "productType":"womendress",
 
       "title": "Opna Women's Short Sleeve Moisture",
-      "price": 12.99,
+      "price": 22.99,
    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolorem rem sequi consectetur quo at veritatis sunt laudantium officia fuga distinctio aut, repudiandae voluptates rerum earum adipisci incidunt, nesciunt sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eos soluta quisquam? Blanditiis minima ducimus eaque fuga quod non placeat quaerat quas consectetur veritatis adipisci, odio cum illo, voluptates voluptatem!" ,
    "category": "women's clothing",
 
@@ -384,7 +384,7 @@ const productList=[
       "productType":"womendress",
 
       "title": "Opna Women's Short Sleeve Moisture",
-      "price": 12.99,
+      "price": 75.99,
   "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolorem rem sequi consectetur quo at veritatis sunt laudantium officia fuga distinctio aut, repudiandae voluptates rerum earum adipisci incidunt, nesciunt sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eos soluta quisquam? Blanditiis minima ducimus eaque fuga quod non placeat quaerat quas consectetur veritatis adipisci, odio cum illo, voluptates voluptatem!" ,
   "category": "women's clothing",
 
@@ -400,7 +400,7 @@ const productList=[
       "productType":"womendress",
 
       "title": "Opna Women's Short Sleeve Moisture",
-      "price": 12.99,
+      "price": 85.99,
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolorem rem sequi consectetur quo at veritatis sunt laudantium officia fuga distinctio aut, repudiandae voluptates rerum earum adipisci incidunt, nesciunt sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eos soluta quisquam? Blanditiis minima ducimus eaque fuga quod non placeat quaerat quas consectetur veritatis adipisci, odio cum illo, voluptates voluptatem!" ,
      
       "category": "women's clothing",

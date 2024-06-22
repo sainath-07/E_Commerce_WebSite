@@ -92,26 +92,10 @@ const MiniNavBar = () => {
                 </div>
 
 
-                <form className="flex justify-center">
-                  <select
-                    name="sort"
-                    id="sort"
-                    className="text-base font-custom py-1 font-semibold w-full"
-                    value={sortValue}
-                    onChange={handleSortChange}
-                  >
-                    <option value="" disabled>
-                      Sort Price
-                    </option>
-                    <option value="a-z" className="text-center border-2 border-red-900">low to High</option>
-                    <option value="A-Z">High to Low</option>
-                  </select>
-                </form>
-            
 
             </section>
           </div>
-            {/* --------------------- */}
+            {/* -------------End of the side view in the mobile page-------- */}
 
 
             <li

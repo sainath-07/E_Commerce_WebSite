@@ -26,8 +26,8 @@ import { Link, useLocation } from "react-router-dom";
                   <ul 
                   >
                     <li>
-                      <Link className="md:text-base text-gray-500
-                      lg:text-[16px]
+                      <Link className="font-bold md:text-base text-gray-500
+                      lg:text-[20px] 
                       " to={obj.link} >
                         {obj.label}
                       </Link>

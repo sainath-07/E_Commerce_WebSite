@@ -16,8 +16,7 @@ const DummyProducts = () => {
     allCategoriesButton,
     productsFilteringCategoryWise,
     sortAsc,
-    sortProduct,
-    renderProducts,
+  
     sortValue,
     handleSortChange,
     searchvalue,
@@ -63,6 +62,9 @@ const DummyProducts = () => {
           {buttonCategories}
         </ButtonCategories>
 
+
+        {/* Search bar -----------------------------------> */}
+
         <div className="mt-16 ">
           <form
             className=" flex justify-center  h-[40px] px-4
@@ -96,88 +98,7 @@ const DummyProducts = () => {
         sm:justify-items-center lg:gap-4
         mx-4"
         >
-          {renderProducts ? (
-            <>
-              {sortProduct.map((each, i) => {
-                const {
-                  image,
-                  price,
-                  title,
-                  id,
-                  rating: { rate },
-                  category,
-                } = each;
-                return (
-                  <React.Fragment key={i}>
-                    <div
-                      className="rounded-2xl dark:bg-gray-800 hover:bg-black/80 container hover:text-white relative shadow-lg duration-300 group   w-full 
-                sm:w-[90%] sm:h-[80%] flex flex-col justify-center items-center 
-                md:w-[95%] md:h-full  border-2
-                lg:h-[420px] lg:w-full"
-                    >
-                      {/* Image section */}
-                      <div className="h-[50%] lg:h-[50%]">
-                        {isloading ? (
-                          <Skeleton width={180} height={200} />
-                        ) : (
-                          <img
-                            src={image}
-                            className="w-full sm:w-full h-full lg:w-full py-2 mx-auto transform group-hover:scale-105 duration-200 drop-shadow-md border-2 rounded"
-                            alt="product"
-                          />
-                        )}
-                      </div>
-
-                      {/* Body section */}
-                      <div
-                        className="mt-2 sm:h-2/5
-                   md:max-h-[25%] py-2 md:py-0  text-center flex flex-col "
-                      >
-                        <h1 className="font-bold line-clamp-1 px-[2px] md:px-0">
-                          {isloading ? <Skeleton width={100} /> : title}
-                        </h1>
-                
-                        <p className=" font-semibold line-clamp-1">
-                          {isloading ? <Skeleton /> : <>Category: {category}</>}
-                        </p>
-                        <p className="text-base line-clamp-1">
-                          {isloading ? (
-                            <Skeleton />
-                          ) : (
-                            <>
-                              {" "}
-                              Price: <span>&#8377;</span>
-                              {Math.ceil(price)}
-                            </>
-                          )}
-                        </p>
-                        <p className=" line-clamp-1">
-                          {isloading ? (
-                            <Skeleton />
-                          ) : (
-                            <>Rating: {Math.round(rate)}</>
-                          )}
-                        </p>
-                      </div>
-
-                      <Link to={`/${title}/${id}`}>
-                        <button
-                          className={clsx(
-                            "hover:scale-105 duration-300 py-1 px-4 rounded-full group-hover:bg-dark hover:border-2 hover:opacity-75 mb-4 group-hover:text-red text-dark m-1  ",
-                            !isloading && "border-2"
-                          )}
-                        >
-                          {isloading ? <Skeleton /> : <> View Product </>}
-                        </button>
-                      </Link>
-                    </div>
-                  </React.Fragment>
-                );
-              })}
-            </>
-          ) : (
-            <>
-              {products.map((each, i) => {
+         {products.map((each, i) => {
                 const {
                   image,
                   price,
@@ -201,7 +122,7 @@ const DummyProducts = () => {
                         ) : (
                           <img
                             src={image}
-                            className="w-full sm:w-[95%] h-full lg:w-full py-2 mx-auto transform group-hover:scale-105 duration-200 drop-shadow-md rounded border-2"
+                            className="w-full sm:w-[95%] h-full lg:w-full py-2 mx-auto transform group-hover:scale-105 duration-200 drop-shadow-md rounded "
                             alt="product"
                           />
                         )}
@@ -253,8 +174,6 @@ const DummyProducts = () => {
                   </React.Fragment>
                 );
               })}
-            </>
-          )}
         </div>
       </div>
     </>

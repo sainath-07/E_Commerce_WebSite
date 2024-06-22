@@ -4,53 +4,55 @@ import Collections from "../../Pages/Collections";
 import MenPage from "../../Pages/Men";
 import HomePage from "../Mainpage/Homepage";
 import EachProductDetails from "../../Pages/eachproductdetails";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import productList from "../DummyProducts/productlistdata";
 import Cartpage from "../../Pages/Cartpage";
-import LoginForm from "../../Pages/Auth0/Loginform";
-import {toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './toaster.css'
+import toast from 'react-hot-toast';
+// import 'react-toastify/dist/ReactToastify.css';
+// import './toaster.css'
+
+const notify = () => toast('Here is your toast.');
 
 
 export const passdata = createContext();
 
 // ---------------->Component
 const NavigationStack = () => {
+
   const [products, setproducts] = useState([]);
   const [dummyproducts, setdummyproducts] = useState([]);
-  const [sortProduct, setsortProduct] = useState([]);
+  
+  const cartfromLocalStroage=JSON.parse(localStorage.getItem("cart") || "[]")
+  const [cardProducts, setcardProducts] = useState(cartfromLocalStroage);
+  
+  useEffect(()=>{
+    localStorage.setItem("cart",JSON.stringify(cardProducts))
+  },[cardProducts])
 
-  const [cardProducts, setcardProducts] = useState([]);
-
-  const [renderProducts, setrenderProducts] = useState(true);
-  const [sortValue, setSortValue] = useState("");
 
   // Search functionality varaible
   const [searchvalue, setsearchvalue] = useState("");
 
+  // sortvalue set to value in the inputfield
+  const [sortValue, setSortValue] = useState("");
 
-
-  //fetching  All products .....
-  const fetchProducts = async () => {
-    setproducts(productList);
-    setdummyproducts(productList);
-    setsortProduct(productList);
-  };
 
   // add to cart functionality from eachproductdetais component
 
   const addToCart = (obj) => {
     const res = { ...obj, count: 1, totalprice: Math.round(obj.price) };
     setcardProducts([...cardProducts, res]);
-    toast.success("added to cart",
-    //   {
-    //   position: toast.POSITION.TOP_CENTER,
-    //   className: 'custom-toast-container',
-    //   bodyClassName: 'custom-toast-body',
-    // }
-  )
+    toast.success('Successfully toasted!')
   };
+  
+  
+  
+  //fetching  All products .....
+  const fetchProducts = async () => {
+    setproducts(productList);
+    setdummyproducts(productList);
+  };
+
 
   // Filtering products data in the collections component
   const productsFilteringCategoryWise = (category) => {
@@ -61,7 +63,6 @@ const NavigationStack = () => {
     );
 
     setproducts(filterdata);
-    setrenderProducts(false);
   };
 
   // All products button
@@ -71,29 +72,25 @@ const NavigationStack = () => {
       let result = productList.sort((a, b) => a.id - b.id);
       setproducts(result);
       setdummyproducts(result);
-      setrenderProducts(false);
     }
   };
 
   // Sorting the products
 
   const sortAsc = () => {
-    let data = [...sortProduct];
+    let data = [...products];
     if (data.length > 0) {
       let result = data.sort((a, b) => a.price - b.price);
-      setsortProduct(result);
-      setrenderProducts(true);
+      setproducts(result)
     }
-    console.log(sortProduct);
   };
+
   const sortDes = () => {
-    let data = [...sortProduct];
+    let data = [...products];
     if (data.length > 0) {
       let result = data.sort((a, b) => b.price - a.price);
-      setsortProduct(result);
-      setrenderProducts(true);
+      setproducts(result)
     }
-    console.log(sortProduct);
   };
 
   const handleSortChange = (event) => {
@@ -119,7 +116,7 @@ const NavigationStack = () => {
       if (filterdata) {
         setproducts(filterdata);
         setdummyproducts(filterdata);
-      setrenderProducts(false);
+      // setrenderProducts(false);
       }
     } 
    
@@ -152,8 +149,7 @@ const NavigationStack = () => {
           products,
           dummyproducts,
           cardProducts,
-          sortProduct,
-          renderProducts,
+        
         }}
       >
         <BrowserRouter>
@@ -163,8 +159,7 @@ const NavigationStack = () => {
             <Route path="/men" Component={MenPage} />
             <Route path="/About" Component={AboutPage} />
             <Route path="/Cartpage" Component={Cartpage} />
-            <Route path="/LoginForm" Component={LoginForm} />
-            <Route
+                     <Route
               path="/:category/:productID"
               Component={EachProductDetails}
             />
