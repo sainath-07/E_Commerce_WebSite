@@ -106,8 +106,8 @@ const NavigationStack = () => {
          redirectTarget:"_modal",
        }
        cashfree.checkout(checkoutOptions).then(async(res) => {
-         console.log("payment initialized")
-     console.log(checkout,"checkout")
+    //      console.log("payment initialized")
+    //  console.log(checkout,"checkout")
 
      const isPaymentVerified = await verifyPayment(orderId);
         if (isPaymentVerified) {
