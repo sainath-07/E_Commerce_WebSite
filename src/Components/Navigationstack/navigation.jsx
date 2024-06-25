@@ -86,7 +86,7 @@ const NavigationStack = () => {
      })
 
      if(res && res.data){
-       alert("payment verified")
+      //  alert("payment verified")
      }
 
    } catch (error) {
