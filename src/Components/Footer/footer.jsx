@@ -1,4 +1,3 @@
-import ListItems from "../Navbar/Listitem"
 import { TiSocialFacebook } from 'react-icons/ti';
 import { IoLogoInstagram } from "react-icons/io5";
 import { RxTwitterLogo } from "react-icons/rx";

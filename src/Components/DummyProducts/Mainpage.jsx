@@ -4,9 +4,10 @@ import ButtonCategories from "./Buttonpage";
 import { passdata } from "../Navigationstack/navigation";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { Link } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import clsx from "clsx";
 import { GoMoveToTop } from "react-icons/go";
+import './buttonpage.css'
 
 
 const DummyProducts = () => {
@@ -49,6 +50,7 @@ const DummyProducts = () => {
     }
   };
 
+ 
   return (
     <>
       <div className="sm:mt-20" id="#">
@@ -155,21 +157,26 @@ const DummyProducts = () => {
                           {isloading ? (
                             <Skeleton />
                           ) : (
-                            <>Rating: {Math.round(rate)}</>
+                            <>
+                           
+
+                            Rating: {Math.round(rate)}/5
+                            
+                            </>
                           )}
                         </p>
                       </div>
 
-                      <Link to={`/${title}/${id}`}>
+                      <NavLink to={`/${title}/${id}`}>
                         <button
                           className={clsx(
-                            "hover:scale-105 duration-300 py-1 px-4 rounded-full group-hover:bg-dark hover:border-2 hover:opacity-75 mb-4 group-hover:text-red text-dark m-1  ",
+                            "hover:scale-105 duration-300 py-1 px-4 rounded-full group-hover:bg-dark hover:border-2 hover:opacity-75 mb-4 group-hover:text-red text-dark m-1 ",
                             !isloading && "border-2"
                           )}
                         >
                           {isloading ? <Skeleton /> : <> View Product </>}
                         </button>
-                      </Link>
+                      </NavLink>
                     </div>
                   </React.Fragment>
                 );

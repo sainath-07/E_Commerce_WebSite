@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import { passdata } from "../Components/Navigationstack/navigation";
 import MiniNavBar from "./MiniNavbarinsideeachproducts/miniNavBar";
-import Skeleton from "react-loading-skeleton";
 
 const EachProductDetails = () => {
   const { addToCart, productList, cardProducts } = useContext(passdata);
@@ -58,9 +57,11 @@ const EachProductDetails = () => {
 
           <div className="flex  justify-center md:justify-start space-x-4 mt-4">
             {isProductInCart(id) ? (
+               <Link to={"/Cartpage"}>
               <button className="px-4 py-2 font-bold drop-shadow-lg	 bg-orange-500 text-white rounded">
-                <Link to={"/Cartpage"}>Buy Now</Link>
+               Buy Now
               </button>
+              </Link>
             ) : (
               <>
                 <button

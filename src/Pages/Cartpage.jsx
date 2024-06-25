@@ -3,105 +3,19 @@ import { passdata } from "../Components/Navigationstack/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
-import { loadStripe } from "@stripe/stripe-js";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Minus, Plus } from "lucide-react";
+import axios from "axios";
+import {load} from '@cashfreepayments/cashfree-js'
+import { useAuth0 } from "@auth0/auth0-react";
+import toast from "react-hot-toast";
 
 
 const Cartpage = () => {
-  const { cardProducts, setcardProducts } = useContext(passdata);
-
-  
-
-  // Quantity function
-
-  const userAction = (action, index) => {
-    switch (action) {
-      case "INCREMENT":
-        const countIncrease = cardProducts.map((each, i) => {
-          if (each.id === index) {
-            each.count++;
-            each.totalprice = each.count * each.price;
-            return each;
-          } else {
-            return each;
-          }
-        });
-
-        setcardProducts(countIncrease);
-
-        break;
-
-      case "DECREMENT":
-        const countdecrease = cardProducts.map((each, i) => {
-          if (each.id === index && each.count > 1) {
-            each.count--;
-            each.totalprice = each.count * each.price;
-            return each;
-          } else {
-            return each;
-          }
-        });
-        setcardProducts(countdecrease);
-    }
-  };
 
 
 
-  // Products deleting function
-  const deleteProduct = (data) => {
-    const filterdata = cardProducts.filter((each, i) => each.id !== data);
-
-    setcardProducts(filterdata);
-  };
-
-  // Calculating the sub total price...
-  const totalStoreAllprice = cardProducts.map((each, i) => {
-    return Math.round(each.totalprice);
-  });
-
-  const calculate = (accumulator, element) => accumulator + element;
-  const totalpricefun = totalStoreAllprice.reduce(calculate, 0);
-
-  // orderTotal
-
-  let percentage = totalpricefun * 0.08;
-  const res = totalpricefun + Math.round(percentage) + 150;
-
-  // Payment gateway integration
-
-  const makePayment = async () => {
-    // pass the publishable key in the loadstripe method
-    const stripe = await loadStripe(
-      "pk_test_51PRvHkRrscabj2MulYvN02itN9TFZ5M1gALt7OaBxn1Neh2t6iLIo1cFXxX7nBfhBQf6Ij6ZjnE7282nZqzCz8Nb00ByQxV6AQ"
-    );
-
-    const body = {
-      cardProducts: cardProducts,
-    };
-
-    const headers = {
-      "Content-Type": "application/json",
-    };
-
-    const response = await fetch(
-      "http://localhost:7000/api/create-checkout-session",
-      {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(body),
-      }
-    );
-
-    const session = await response.json();
-
-    const result = stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
-    if (result.error) {
-      console.log(result.error);
-    }
-  };
+  const {handleClick, cardProducts,totalpricefun,userAction,deleteProduct ,checkout} = useContext(passdata);
 
   return (
     <>
@@ -116,28 +30,39 @@ const Cartpage = () => {
               className="font-custom font-semibold px-2 rounded sm:text-xl
             "
             >
-              <Link
+              <NavLink
                 to={"/"}
                 className="px-2 py-1 
-               border-red-500
-              sm:hover:border-b-2
+               
               "
               >
                 Home
-              </Link>
+              </NavLink>
             </li>
 
             <li className="font-custom font-semibold px-2 rounded sm:text-xl">
-              <Link
+              <NavLink
                 className="px-2 py-1 
-               border-red-500
-              sm:hover:border-b-2
+              
               "
                 to={"/Products"}
               >
                 Collections
-              </Link>
+              </NavLink>
             </li>
+
+            <li className="font-custom font-semibold px-2 rounded sm:text-xl">
+              <NavLink
+                className="px-2 py-1 
+              
+              "
+                to={"/Cartpage"}
+              >
+                Cart
+              </NavLink>
+            </li>
+
+            
           </ul>
         </nav>
       </div>
@@ -170,7 +95,7 @@ const Cartpage = () => {
                   </p>
                   <p className="text-gray-800 font-bold mt-2">
                     Price: <span>&#8377;</span>
-                    {Math.ceil(price)}
+                    {Math.round(price)}
                   </p>
 
                   <span className="mt-12 font-bold">Qty :{count}</span>
@@ -257,16 +182,34 @@ const Cartpage = () => {
             <p className="font-semibold text-xl">Order total</p>
             <p className="font-bold text-2xl text-red-600">
               <span>&#8377;</span>
-              {totalpricefun && res}
+              {totalpricefun && checkout}
             </p>
           </div>
 
+  {
+
+cardProducts.length>0 ?
+
           <button
             className="w-[90%] h-[14%] text-2xl font-mono bg-blue-600 text-white rounded"
-            onClick={makePayment}
+            onClick={
+              handleClick}
           >
-            Checkout
+            Checkout 
           </button>
+
+          :
+         
+          <button
+          className="w-[90%] h-[14%] text-2xl font-mono rounded"
+          
+        >
+           <Link to={'/Products'} className="p-2 w-full h-full text-white bg-blue-600">addProdcuts</Link> 
+        </button>
+
+
+  }
+          
         </div>
       </div>
     </>

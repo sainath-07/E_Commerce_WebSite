@@ -28,7 +28,6 @@ export default function HomePage() {
    <Products/>
    <TopProducts/>
    <Bannerpage/>
-  
    <Footer/>
    </>
   )

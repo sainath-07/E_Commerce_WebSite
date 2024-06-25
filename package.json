@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^2.2.4",
+    "@cashfreepayments/cashfree-js": "^1.0.4",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@stripe/stripe-js": "^3.5.0",
@@ -12,7 +13,12 @@
     "@testing-library/user-event": "^13.5.0",
     "aos": "^2.3.4",
     "axios": "^1.7.2",
+    "cashfree-pg": "^4.1.2",
     "clsx": "^2.1.1",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "firebase": "^10.12.2",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.10.1",
@@ -28,6 +34,7 @@
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.8",
     "react-toastify": "^10.0.5",
+    "sweetalert2": "^11.12.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

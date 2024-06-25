@@ -46,7 +46,7 @@ const productList=[
       "Brand" : "Vox Shirts",
        "productType":"shirt",
       "title": "Mens Casual Premium Slim Fit T-Shirts",
-      "price": 109.95,
+      "price": 150,
      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dolorem rem sequi consectetur quo at veritatis sunt laudantium officia fuga distinctio aut, repudiandae voluptates rerum earum adipisci incidunt, nesciunt sint. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eos soluta quisquam? Blanditiis minima ducimus eaque fuga quod non placeat quaerat quas consectetur veritatis adipisci, odio cum illo, voluptates voluptatem!" ,
       "category": "men's clothing",
       "image": img1,
