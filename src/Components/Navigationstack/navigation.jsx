@@ -122,14 +122,7 @@ const NavigationStack = () => {
             icon: "success",
           });
         }
-        // else{
-        //   setcardProducts(cardProducts);
 
-        //   Swal.fire({
-        //     text: "Payment has been cancelled",
-        //     icon: "warning",
-        //   });
-        // }
       });
     } catch (error) {
       console.log(error);

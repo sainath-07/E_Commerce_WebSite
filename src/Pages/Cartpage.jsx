@@ -204,7 +204,7 @@ cardProducts.length>0 ?
           className="w-[90%] h-[14%] text-2xl font-mono rounded"
           
         >
-           <Link to={'/Products'} className="p-2 w-full h-full text-white bg-blue-600">AddProdcuts</Link> 
+           <Link to={'/Products'} className="p-2 w-full h-full text-white bg-blue-600">Add products</Link> 
         </button>
 
 
