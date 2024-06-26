@@ -81,7 +81,6 @@ app.post('/verify', async (req, res) => {
             console.error(error.response.data.message);
         })
 
-
     } catch (error) {
         console.log(error);
     }
